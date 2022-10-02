@@ -11,3 +11,4 @@
 
 1. run the `.py` file under `src/components`, otherwise the `.json` file would be updated in a wrong place
 2. load the `.ino` file inside the arduino before using the `.py` file
+3. update the Serial() object inside `.py` file
