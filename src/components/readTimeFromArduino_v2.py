@@ -4,18 +4,29 @@ from datetime import datetime, timedelta
 import sys
 
 """
-instuctions to run the script (macOS or linux-like):
+instuctions to run the script:
 0) LOAD THE .ino FILE INTO YOUR ARDUINO (see the circuit diagram attached)
+---
+for macOS or linux-like:
 1) run `ls /dev/tty.*` in the terminal
+for windows:
+1) open device manager --> Ports (COM & LPT)
+---
 2) if Arduino is plugged into the computer, then you should see
-   /dev/tty.usbserial-##### as one of the result
+   /dev/tty.usbserial-##### (macOS) or COM# (windows) as one of the result
 3) put this number inside the serial.Serial() object
 4) run the script at the start of the race
 5) after the end of the race, interrupt the script by ctrl+c
 6) laptime.json stores the laptime of each lap in the format of
    "${lap_number}": ${lap_time}
 """
+
+# TODO: maybe test baudrate= arg inside Serial() object: mimick the arduino IDE setting
+# choose one of two Serial object based on OS type:
+# macOS or linux-like
 ser = serial.Serial("/dev/tty.usbserial-14320", timeout=1)
+# windows
+# ser = serial.Serial("COM4", timeout=1)
 hasStarted = False
 startTime = datetime.now()
 endTime = datetime.now()
