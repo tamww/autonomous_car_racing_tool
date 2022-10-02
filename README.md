@@ -6,3 +6,8 @@
     - note the command line argument that represents the ID of the team that is currently on the track (1-30))
     - also remember to change the serial port at the start of the `.py` file; see the `.py` file for more details
 4. the best laptime is shown in `database.json` and the leaderboard webpage, while all laptimes are recorded inside `laptime.json`
+
+## REMEMBER
+
+1. run the `.py` file under `src/components`, otherwise the `.json` file would be updated in a wrong place
+2. load the `.ino` file inside the arduino before using the `.py` file
