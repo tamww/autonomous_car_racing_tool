@@ -72,10 +72,11 @@ function Item(data){
           {
               data.map((value, index) => ( 
                   <Paper elevation={getElevation(index)} sx={{
-                      padding: "1rem",
+                      padding: "1.5rem",
                       margin: "0.2rem",
                       borderRadius: "2rem",
-                      width: "100%"
+                      width: "100%",
+                      marginBottom: "1rem"
                   }}>
                       <Box
                           display="flex"
@@ -83,12 +84,12 @@ function Item(data){
                           justifyContent="left"
                         //   marginBottom="10px"
                           height="50px"
-                          width= "100"
+                          width="430px" 
                       >
                       <Box
                           display="flex"
                           flexDirection="column"
-                          width="30%"
+                          width="70px"
                       >
                           <Stack direction="row" spacing={2}>
                               <Avatar sx={{ width: 46, height: 46, bgcolor: getColor(index + 1)}}><strong>{index + 1}</strong></Avatar>
@@ -97,7 +98,7 @@ function Item(data){
                       <Box
                           display="flex"
                           flexDirection="column"
-                          width="90%"
+                          width="280px"
                       >
                           <h3 className="name"><strong>{value.name}</strong></h3>
                           <span>{value.location}</span>
@@ -105,14 +106,14 @@ function Item(data){
                       <Box
                           display="flex"
                           flexDirection="column"
-                          width="10%"
-                          paddingRight="1rem"
+                          width="80px"
+                          // paddingRight="1rem"
                       >   
                           {value.score == "03:00.000" && <span>TBC</span>}
                           {value.score != "03:00.000" && <span>{value.score}</span>}
                       </Box>
 
-                  </Box>
+                      </Box>
                   </Paper>
               ))
           }

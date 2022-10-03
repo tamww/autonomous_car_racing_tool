@@ -29,13 +29,13 @@ const Header = () => {
                   marginTop: "-6rem"
                 }}>
                   <Grid item xs={4} md={4}>
-                    <img src={hangseng} alt="My Team" className={classes.largeImage} />
+                    <img src={logo} alt="My Team" className={classes.largeImage} />
                   </Grid>
                   <Grid item xs={4} md={4}>
                     <img src={deepracer} alt="My Team" className={classes.largeImage} />
                   </Grid>
                   <Grid item xs={4} md={4}>
-                    <img src={logo} alt="My Team" className={classes.largeImage} />
+                    <img src={hangseng} alt="My Team" className={classes.largeImage} />
                   </Grid>
                 </Grid>
       </Box>

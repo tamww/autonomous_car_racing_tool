@@ -6,7 +6,7 @@
 }
 
 body {
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(101,9,121,1) 35%, rgba(162,0,255,0.5998774509803921) 100%)
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(101,9,121,1) 35%, rgba(162,0,255,0.5998774509803921) 100%);
 }
 
 :root{
@@ -99,9 +99,20 @@ body {
 .stratify {
     padding: 1rem;
     columns: 3 auto;
+    column-width: 33%;
+}
+
+.stratifyOneColumn {
+    padding: 1rem;
+    columns: 1 auto;
 }
 
 [id^=test] {
     display: none;
     visibility: hidden;
+}
+
+#test1 {
+    display: block;
+    visibility: visible;
 }
