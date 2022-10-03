@@ -5,6 +5,10 @@
     margin: 0;
 }
 
+body {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(101,9,121,1) 35%, rgba(162,0,255,0.5998774509803921) 100%)
+}
+
 :root{
     --color-dark: #2C3131;
     --color-light: #F3F3F2;
@@ -93,7 +97,7 @@
     /*object-fit: cover;*/
 }
 .stratify {
-    columns: 1 auto;
+    columns: 3 auto;
 }
 
 [id^=test] {
