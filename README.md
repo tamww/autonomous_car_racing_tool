@@ -6,6 +6,7 @@
     - note the command line argument that represents the ID of the team that is currently on the track (1-30))
     - also remember to change the serial port at the start of the `.py` file; see the `.py` file for more details
 4. the best laptime is shown in `database.json` and the leaderboard webpage, while all laptimes are recorded inside `laptime.json`
+5. use `localhost:3000/` for the interface to be shown on HASE TV screen; use `localhost:3000/zoom` for the interface to be broadcasted to Zoom webinar
 
 ## REMEMBER
 
