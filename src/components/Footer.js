@@ -2,18 +2,15 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
-
+import csl from "./images/CSL.png"
+import useStyles from '../styles/styles';
 
 function Copyright() {
+  const classes = useStyles();
   return (
-    <Typography variant="body2" color="text.secondary" align="center"  >
-      {'Copyright © '}
-      <Link color="inherit" href="http://localhost:3000/">
-        AWS DeepRacer League
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
+    <Typography variant="h6" color="text.secondary" align="center"  >
+      {'Powered by  '}
+      <img src={csl} alt="My Team" className={classes.iconImage} />
     </Typography>
   );
 }
@@ -21,7 +18,7 @@ function Copyright() {
 const Footer = () => {
 
   return (
-    <Box sx={{ position: "absolute", bottom: "1rem" }}>
+    <Box sx={{ position: "absolute", bottom: "0.2rem" }}>
       <Container>
         <Copyright />
       </Container>

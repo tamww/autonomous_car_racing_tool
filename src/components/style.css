@@ -97,6 +97,7 @@ body {
     /*object-fit: cover;*/
 }
 .stratify {
+    padding: 1rem;
     columns: 3 auto;
 }
 

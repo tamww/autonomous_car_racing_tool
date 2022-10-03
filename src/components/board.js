@@ -34,7 +34,7 @@ export default function Board() {
             <Header/>
             
         </Box>
-        <Hero/>
+        {/* <Hero/> */}
         <Box
             display="flex"
             flexDirection="row"
@@ -49,7 +49,7 @@ export default function Board() {
             </Box>
 
         </Box>
-        </div>
+      </div>
     // <div>
     //   <Box>
     //     <Box

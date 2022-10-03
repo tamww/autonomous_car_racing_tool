@@ -38,7 +38,7 @@ const styles = (theme) => {
       width: '100%',
       display: 'flex',
       flexDirection: "column",
-      minHeight: '600px',
+      minHeight: '100px',
       alignItems: 'center',
       justifyContent: 'center',
       marginBottom: "-9rem",
@@ -70,7 +70,7 @@ const styles = (theme) => {
       paddingBottom: '30px',
     },
     largeImage: {
-      width: '100%',
+      width: '4.1rem',
     },
     sectionGridContainer: {
       display: 'flex',
@@ -128,6 +128,9 @@ const styles = (theme) => {
       fontSize: '14px',
       opacity: '0.6',
     },
+    iconImage: {
+      width: '2rem',
+    }
   };
 };
 

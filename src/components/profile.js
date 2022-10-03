@@ -72,31 +72,32 @@ function Item(data){
           {
               data.map((value, index) => ( 
                   <Paper elevation={getElevation(index)} sx={{
-                      paddingLeft: "10px",
-                      paddingTop: "1rem",
-                      paddingRight: "10px",
-                      borderRadius: "2rem"
+                      padding: "1rem",
+                      margin: "0.2rem",
+                      borderRadius: "2rem",
+                      width: "100%"
                   }}>
                       <Box
                           display="flex"
                           flexDirection="row"
                           justifyContent="left"
-                          marginBottom="10px"
-                          height="75px"
+                        //   marginBottom="10px"
+                          height="50px"
+                          width= "100"
                       >
                       <Box
                           display="flex"
                           flexDirection="column"
-                          width="20%"
+                          width="30%"
                       >
                           <Stack direction="row" spacing={2}>
-                              <Avatar sx={{ width: 56, height: 56, bgcolor: getColor(index + 1)}}><strong>{index + 1}</strong></Avatar>
+                              <Avatar sx={{ width: 46, height: 46, bgcolor: getColor(index + 1)}}><strong>{index + 1}</strong></Avatar>
                           </Stack>
                       </Box>
                       <Box
                           display="flex"
                           flexDirection="column"
-                          width="60%"
+                          width="90%"
                       >
                           <h3 className="name"><strong>{value.name}</strong></h3>
                           <span>{value.location}</span>
@@ -104,9 +105,9 @@ function Item(data){
                       <Box
                           display="flex"
                           flexDirection="column"
-                          width="20%"
-                          paddingRight="20px"
-                      >
+                          width="10%"
+                          paddingRight="1rem"
+                      >   
                           {value.score == "03:00.000" && <span>TBC</span>}
                           {value.score != "03:00.000" && <span>{value.score}</span>}
                       </Box>
