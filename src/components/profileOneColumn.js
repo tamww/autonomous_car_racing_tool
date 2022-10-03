@@ -39,9 +39,9 @@ export function ProfilesThreeColumns({ Leaderboard }) {
 }
 
 function getColor(startIndex, index){
-  // const ind = [400, 'A200', 200, 700, 600, 'A400', 'A700', 500, 800, 900]
-  const ind = [100, "A100", 300, "A200", 400, "A400", 500, 600, 700, "A700"]
-  // const ind = [200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750]
+  const ind = [400, 'A200', 200, 700, 600, 'A400', 'A700', 500, 800, 900]
+  // const ind = [100, "A100", 300, "A200", 400, "A400", 500, 600, 700, "A700"]
+  // // const ind = [200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750]
   let color = null
   if (startIndex + index >= 1 && startIndex + index <= 10){
       color =  green[ind[(startIndex + index-1) % 10]]

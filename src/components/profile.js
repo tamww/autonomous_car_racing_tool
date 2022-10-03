@@ -109,8 +109,9 @@ function Item(data){
                           width="80px"
                           // paddingRight="1rem"
                       >   
+                          {value.score == "99:99.999" && <span>DNF</span>}
                           {value.score == "03:00.000" && <span>TBC</span>}
-                          {value.score != "03:00.000" && <span>{value.score}</span>}
+                          {value.score != "03:00.000" && value.score != "99:99.999" && <span>{value.score}</span>}
                       </Box>
 
                       </Box>

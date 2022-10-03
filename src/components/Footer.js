@@ -8,7 +8,7 @@ import useStyles from '../styles/styles';
 function Copyright() {
   const classes = useStyles();
   return (
-    <Typography variant="h6" color="text.secondary" align="center"  >
+    <Typography variant="h6" color="text.secondary"  >
       {'Powered by  '}
       <img src={csl} alt="My Team" className={classes.iconImage} />
     </Typography>
@@ -18,7 +18,7 @@ function Copyright() {
 const Footer = () => {
 
   return (
-    <Box sx={{ position: "absolute", bottom: "0.2rem" }}>
+    <Box sx={{ position: "absolute", right: "0%", bottom: "0.2rem"}}>
       <Container>
         <Copyright />
       </Container>
