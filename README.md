@@ -1,3 +1,8 @@
+# CAUTION: PLEASE USE PYTHON 3.7+
+# CAUTION: PLEASE USE PYTHON 3.7+
+# CAUTION: PLEASE USE PYTHON 3.7+
+### (sorry if it scares you)
+
 ## Instructions
 
 1. replace the content of `src/components/database.json` and `src/components/laptime.json` with the content of the respective `_template.json` files

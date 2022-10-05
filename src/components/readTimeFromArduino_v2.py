@@ -21,6 +21,10 @@ for windows:
    "${lap_number}": ${lap_time}
 """
 
+# CAUTION: PLEASE USE PYTHON 3.7+
+# CAUTION: PLEASE USE PYTHON 3.7+
+# CAUTION: PLEASE USE PYTHON 3.7+
+
 # # TODO: maybe test baudrate= arg inside Serial() object: mimick the arduino IDE setting
 # # choose one of two Serial object based on OS type:
 # # macOS or linux-like
@@ -86,11 +90,12 @@ def laptimeCounter(teamID):
                     currentTime = [currentTime[0]] + currentTime[1].split(".")
                     currentTimeDatetime = timedelta(minutes=int(currentTime[0]), seconds=int(
                         currentTime[1]), milliseconds=int(currentTime[2]))
-                    if rawBestTime == "00:00:000":  # initial placeholder --> always update
-                        bestTimeListOfDict[teamID - 1]["score"] = laptime[lap]
-                    # test if the current lap time is the fastest
-                    elif rawLaptime.total_seconds() < currentTimeDatetime.total_seconds():
-                        bestTimeListOfDict[teamID - 1]["score"] = laptime[lap]
+                    # if rawBestTime == "99:99.999":  # initial placeholder (TBC: 99:99.999) --> always update
+                    #     bestTimeListOfDict[teamID - 1]["score"] = laptime[lap]
+                    # # test if the current lap time is the fastest
+                    # elif rawLaptime.total_seconds() < currentTimeDatetime.total_seconds():
+                    #     bestTimeListOfDict[teamID - 1]["score"] = laptime[lap]
+                    bestTimeListOfDict[teamID - 1]["score"] = sorted(laptime.values())
                     with open("database.json", "w") as f:  # write the new best lap time to database.json
                         json.dump(bestTimeListOfDict, f)
                     lap += 1
@@ -104,7 +109,7 @@ def laptimeCounter(teamID):
                 with open("database.json", "r") as f:
                     bestTimeListOfDict = json.load(f)
                 allLapTimeListOfDict[teamID - 1]["score"] = {"1": "03:00.000"}
-                bestTimeListOfDict[teamID - 1]["score"] = "03:00.000"
+                bestTimeListOfDict[teamID - 1]["score"] = ["03:00.000"]
                 with open("laptime.json", "w") as f:
                     json.dump(allLapTimeListOfDict, f)
                 with open("database.json", "w") as f:
