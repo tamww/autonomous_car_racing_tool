@@ -68,22 +68,25 @@ function Item(data, startIndex, portionID) {
           padding: "1rem",
           margin: "0.2rem",
           borderRadius: "2rem",
-          width: "100%"
+          width: "460px",
+          marginBottom: "1rem"
         }}>
         <Box
           // display="flex"
           // flexDirection=""
           // justifyContent="left"
           marginBottom="10px"
-          height="50px"
+          height="80px"
           display="grid"
-          gridTemplateColumns="70px 280px 80px"
+          width="460px"
+          gridTemplateColumns="15% 65% 20%"
+          
           // gridGap="20"
         >
-          <Box /*display="flex" flexDirection="column" width="20%"*/>
+          <Box justifyContent="space-around"/*display="flex" flexDirection="column" width="20%"*/>
           {value.score.localeCompare("99:99.999") != 0 && <Stack direction="row" spacing={2}>
-            {index <= 2 && <Avatar sx={{ width: 46, height: 46, bgcolor: getColor(0, index + 1)}}><strong>{0 + index + 1}</strong></Avatar>}
-            {index > 2 && <Avatar sx={{ width: 46, height: 46, bgcolor: getColor(startIndex, index + 1)}}><strong>{startIndex + index + 1}</strong></Avatar>}
+            {index <= 2 && <Avatar sx={{ width: 50, height: 50, bgcolor: getColor(0, index + 1)}}><strong style={{fontSize: 30 + 'px'}}>{0 + index + 1}</strong></Avatar>}
+            {index > 2 && <Avatar sx={{ width: 50, height: 50, bgcolor: getColor(startIndex, index + 1)}}><strong style={{fontSize: 30 + 'px'}}>{startIndex + index + 1}</strong></Avatar>}
           </Stack>}
           </Box>
           <Box
@@ -94,20 +97,10 @@ function Item(data, startIndex, portionID) {
           // marginRight="10px"
           // alignItems="left"
           >
-            <h3 className="name">{value.name}</h3>
-            <span>{value.location}</span>
-          </Box>
-          <Box
-          // display="flex"
-          // flexDirection="column"
-          // width="20%"
-          // marginLeft="10px"
-          // marginRight="10px"
-          // paddingRight="20px"
-          >
-            {value.score.localeCompare("03:00.000") == 0 && <span>DNF</span>}
-            {value.score.localeCompare("99:99.999") == 0 && <span>TBC</span>}
-            {value.score.localeCompare("03:00.000") < 0 && <span>{value.score}</span>}
+            <h3 className="name" style={{fontSize: 30 + 'px'}}><strong>{value.name}</strong></h3>
+            {value.score.localeCompare("03:00.000") == 0 && <span style={{fontSize: 25 + 'px', fontStyle: "italic"}}>DNF</span>}
+            {value.score.localeCompare("99:99.999") == 0 && <span style={{fontSize: 25 + 'px', fontStyle: "italic"}}>TBC</span>}
+            {value.score.localeCompare("03:00.000") < 0 && <span style={{fontSize: 25 + 'px', fontStyle: "italic"}}>{value.score}</span>}
           </Box>
         </Box>
         </Paper>

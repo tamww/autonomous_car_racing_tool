@@ -98,8 +98,8 @@ body {
 }
 .stratify {
     padding: 1rem;
-    columns: 3 auto;
-    column-width: 33%;
+    columns: 4 auto;
+    column-width: 25%;
 }
 
 .stratifyOneColumn {

@@ -83,36 +83,38 @@ function Item(data){
                           flexDirection="row"
                           justifyContent="left"
                         //   marginBottom="10px"
-                          height="50px"
-                          width="430px" 
+                          height="80px"
+                          width="460px"
                       >
                       <Box
                           display="flex"
                           flexDirection="column"
-                          width="70px"
+                          width="15%"
+                          justifyContent="space-around"
                       >
                           {value.score.localeCompare("99:99.999") != 0 && <Stack direction="row" spacing={2}>
-                              <Avatar sx={{ width: 46, height: 46, bgcolor: getColor(index + 1)}}><strong>{index + 1}</strong></Avatar>
+                              <Avatar sx={{ width: 50, height: 50, bgcolor: getColor(index + 1)}}><strong style={{fontSize: 30 + 'px'}}>{index + 1}</strong></Avatar>
                           </Stack>}
                       </Box>
                       <Box
                           display="flex"
                           flexDirection="column"
-                          width="280px"
+                          width="65%"
                       >
-                          <h3 className="name"><strong>{value.name}</strong></h3>
-                          <span>{value.location}</span>
+                          <h3 className="name" style={{fontSize: 30 + 'px'}}><strong>{value.name}</strong></h3>
+                          {value.score.localeCompare("03:00.000") == 0 && <span style={{fontSize: 25 + 'px', fontStyle: "italic"}}>DNF</span>}
+                          {value.score.localeCompare("99:99.999") == 0 && <span style={{fontSize: 25 + 'px', fontStyle: "italic"}}>TBC</span>}
+                          {value.score.localeCompare("03:00.000") < 0 && <span style={{fontSize: 25 + 'px', fontStyle: "italic"}}>{value.score}</span>}
+                          {/* <span style={{fontSize: 20 + 'px'}}>{value.location}</span> */}
                       </Box>
-                      <Box
+                      {/* <Box
                           display="flex"
                           flexDirection="column"
-                          width="80px"
+                          width="20%"
                           // paddingRight="1rem"
                       >   
-                          {value.score.localeCompare("03:00.000") == 0 && <span>DNF</span>}
-                          {value.score.localeCompare("99:99.999") == 0 && <span>TBC</span>}
-                          {value.score.localeCompare("03:00.000") < 0 && <span>{value.score}</span>}
-                      </Box>
+                          
+                      </Box> */}
 
                       </Box>
                   </Paper>
