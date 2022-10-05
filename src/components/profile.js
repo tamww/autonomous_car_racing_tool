@@ -22,7 +22,10 @@ import Box from '@mui/material/Box';
 export default function Profiles({Leaderboard}){
   return(
       <div id="profile">
-          {Item(Leaderboard)}
+          {Item(Leaderboard.slice(0,8), 0)}
+          {Item(Leaderboard.slice(8,16), 8)}
+          {Item(Leaderboard.slice(16,24), 16)}
+          {Item(Leaderboard.slice(24,30), 24)}
       </div>
   )
 }
@@ -65,13 +68,13 @@ function getElevation(index) {
 //}
 
 
-function Item(data){
+function Item(data, startIndex){
   console.log(data)
   return(
       <div class="stratify">
           {
               data.map((value, index) => ( 
-                  <Paper elevation={getElevation(index)} sx={{
+                  <Paper elevation={getElevation(startIndex + index)} sx={{
                       padding: "1.5rem",
                       margin: "0.2rem",
                       borderRadius: "2rem",
@@ -93,7 +96,7 @@ function Item(data){
                           justifyContent="space-around"
                       >
                           {value.score.localeCompare("99:99.999") != 0 && <Stack direction="row" spacing={2}>
-                              <Avatar sx={{ width: 50, height: 50, bgcolor: getColor(index + 1)}}><strong style={{fontSize: 30 + 'px'}}>{index + 1}</strong></Avatar>
+                              <Avatar sx={{ width: 50, height: 50, bgcolor: getColor(startIndex + index + 1)}}><strong style={{fontSize: 30 + 'px'}}>{startIndex + index + 1}</strong></Avatar>
                           </Stack>}
                       </Box>
                       <Box
