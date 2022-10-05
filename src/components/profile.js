@@ -91,9 +91,9 @@ function Item(data){
                           flexDirection="column"
                           width="70px"
                       >
-                          <Stack direction="row" spacing={2}>
+                          {value.score.localeCompare("99:99.999") != 0 && <Stack direction="row" spacing={2}>
                               <Avatar sx={{ width: 46, height: 46, bgcolor: getColor(index + 1)}}><strong>{index + 1}</strong></Avatar>
-                          </Stack>
+                          </Stack>}
                       </Box>
                       <Box
                           display="flex"
@@ -109,9 +109,9 @@ function Item(data){
                           width="80px"
                           // paddingRight="1rem"
                       >   
-                          {value.score == "99:99.999" && <span>DNF</span>}
-                          {value.score == "03:00.000" && <span>TBC</span>}
-                          {value.score != "03:00.000" && value.score != "99:99.999" && <span>{value.score}</span>}
+                          {value.score.localeCompare("03:00.000") == 0 && <span>DNF</span>}
+                          {value.score.localeCompare("99:99.999") == 0 && <span>TBC</span>}
+                          {value.score.localeCompare("03:00.000") < 0 && <span>{value.score}</span>}
                       </Box>
 
                       </Box>
@@ -121,51 +121,3 @@ function Item(data){
       </div>
   )
 }
-
-// function Item(data, startIndex, portionID) {
-//   return (
-//     <div className="stratify" id={portionID}>
-//       {data.map((value, index) => (
-//         <Box
-//           // display="flex"
-//           // flexDirection=""
-//           // justifyContent="left"
-//           marginBottom="10px"
-//           height="75px"
-//           display="grid"
-//           gridTemplateColumns="70px 280px 80px"
-//           // gridGap="20"
-//         >
-//           <Box /*display="flex" flexDirection="column" width="20%"*/>
-//             <img
-//               src={images[`${startIndex + index + 1}.png`]}
-//               className="numbers"
-//               alt=""
-//             />
-//           </Box>
-//           <Box
-//           // display="flex"
-//           // flexDirection="column"
-//           // width="60%"
-//           // marginLeft="10px"
-//           // marginRight="10px"
-//           // alignItems="left"
-//           >
-//             <h3 className="name text-dark">{value.name}</h3>
-//             <span>{value.location}</span>
-//           </Box>
-//           <Box
-//           // display="flex"
-//           // flexDirection="column"
-//           // width="20%"
-//           // marginLeft="10px"
-//           // marginRight="10px"
-//           // paddingRight="20px"
-//           >
-//             <span>{value.score}</span>
-//           </Box>
-//         </Box>
-//       ))}
-//     </div>
-//   );
-// }

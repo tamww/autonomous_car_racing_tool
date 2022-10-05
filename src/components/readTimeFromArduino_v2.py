@@ -21,33 +21,42 @@ for windows:
    "${lap_number}": ${lap_time}
 """
 
-# TODO: maybe test baudrate= arg inside Serial() object: mimick the arduino IDE setting
-# choose one of two Serial object based on OS type:
-# macOS or linux-like
-ser = serial.Serial("/dev/tty.usbserial-14320", timeout=1)
-# windows
-# ser = serial.Serial("COM4", timeout=1)
-hasStarted = False
-hasFinishedOneLap = False
-startTime = datetime.now()
-endTime = datetime.now()
-laptime = dict()
-previousPeak = datetime.now()
-lap = 1
-count = 0
-teamID = int(sys.argv[1])
+# # TODO: maybe test baudrate= arg inside Serial() object: mimick the arduino IDE setting
+# # choose one of two Serial object based on OS type:
+# # macOS or linux-like
+# ser = serial.Serial("/dev/tty.usbserial-14320", baudrate=9600, timeout=1)
+# # windows
+# # ser = serial.Serial("COM4", timeout=1)
+# hasStarted = False
+# hasFinishedOneLap = False
+# startTime = datetime.now()
+# endTime = datetime.now()
+# laptime = dict()
+# previousPeak = datetime.now()
+# lap = 1
+# count = 0
+# # teamID = int(sys.argv[1])
 
-try:
+def laptimeCounter(teamID):
+    hasStarted = False
+    hasFinishedOneLap = False
+    startTime = datetime.now()
+    endTime = datetime.now()
+    laptime = dict()
+    previousPeak = datetime.now()
+    lap = 1
+    count = 0
     while True:
-        line = ser.readline()
-        candidateTime = datetime.now()
-        if line == b"1\r\n" and not hasStarted:  # the first touch is the start of the race
-            startTime = datetime.now()
-            hasStarted = True
-        elif (candidateTime - startTime).total_seconds() >= 2:
-            if line == b"1\r\n":
-                count += 1
-                if count > 5:
+        try:
+            line = ser.readline()
+            candidateTime = datetime.now()
+            if line == b"1\r\n" and not hasStarted:  # the first touch is the start of the race
+                startTime = datetime.now()
+                hasStarted = True
+            elif (candidateTime - startTime).total_seconds() >= 2:
+                if line == b"1\r\n":
+                    # count += 1
+                    # if count > 5:
                     hasFinishedOneLap = True
                     # from the second pass onwards, laptime = now() - startTime, and
                     # now() becomes the startTime of the next lap
@@ -85,18 +94,30 @@ try:
                     with open("database.json", "w") as f:  # write the new best lap time to database.json
                         json.dump(bestTimeListOfDict, f)
                     lap += 1
-                    count = 0
-            else:
-                count = 0
-except KeyboardInterrupt:
-    if not hasFinishedOneLap:
-        with open("laptime.json", "r") as f:
-            allLapTimeListOfDict = json.load(f)
-        with open("database.json", "w") as f:
-            bestTimeListOfList = json.load(f)
-        allLapTimeListOfDict[teamID - 1]["score"] = {"1": "99:99.999"}
-        bestTimeListOfList[teamID - 1]["score"] = "99:99.999"
-        with open("laptime.json", "w") as f:
-            json.dump(allLapTimeListOfDict, f)
-        with open("database.json", "w") as f:
-            json.dump(bestTimeListOfDict, f)
+                #         count = 0
+                # else:
+                #     count = 0
+        except KeyboardInterrupt:
+            if not hasFinishedOneLap:
+                with open("laptime.json", "r") as f:
+                    allLapTimeListOfDict = json.load(f)
+                with open("database.json", "r") as f:
+                    bestTimeListOfDict = json.load(f)
+                allLapTimeListOfDict[teamID - 1]["score"] = {"1": "99:99.999"}
+                bestTimeListOfDict[teamID - 1]["score"] = "99:99.999"
+                with open("laptime.json", "w") as f:
+                    json.dump(allLapTimeListOfDict, f)
+                with open("database.json", "w") as f:
+                    json.dump(bestTimeListOfDict, f)
+            break
+
+while True:
+    # TODO: maybe test baudrate= arg inside Serial() object: mimick the arduino IDE setting
+    # choose one of two Serial object based on OS type:
+    # macOS or linux-like
+    ser = serial.Serial("/dev/tty.usbserial-14320", baudrate=9600, timeout=1)
+    # windows
+    # ser = serial.Serial("COM4", timeout=1)
+    # teamID = int(sys.argv[1])
+    teamID = int(input("input the team ID that is on the track (1-30): "))
+    laptimeCounter(teamID)

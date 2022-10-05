@@ -63,7 +63,7 @@ function getElevation(index) {
 function Item(data, startIndex, portionID) {
   return (
     <div className="stratifyOneColumn" id={portionID}>
-      {data.map((value, index) => (
+      {data.map((value, index, data) => (
         <Paper elevation={getElevation(index)} sx={{
           padding: "1rem",
           margin: "0.2rem",
@@ -81,10 +81,10 @@ function Item(data, startIndex, portionID) {
           // gridGap="20"
         >
           <Box /*display="flex" flexDirection="column" width="20%"*/>
-          <Stack direction="row" spacing={2}>
+          {value.score.localeCompare("99:99.999") != 0 && <Stack direction="row" spacing={2}>
             {index <= 2 && <Avatar sx={{ width: 46, height: 46, bgcolor: getColor(0, index + 1)}}><strong>{0 + index + 1}</strong></Avatar>}
             {index > 2 && <Avatar sx={{ width: 46, height: 46, bgcolor: getColor(startIndex, index + 1)}}><strong>{startIndex + index + 1}</strong></Avatar>}
-          </Stack>
+          </Stack>}
           </Box>
           <Box
           // display="flex"
@@ -105,8 +105,9 @@ function Item(data, startIndex, portionID) {
           // marginRight="10px"
           // paddingRight="20px"
           >
-            {value.score == "03:00.000" && <span>TBC</span>}
-            {value.score != "03:00.000" && <span>{value.score}</span>}
+            {value.score.localeCompare("03:00.000") == 0 && <span>DNF</span>}
+            {value.score.localeCompare("99:99.999") == 0 && <span>TBC</span>}
+            {value.score.localeCompare("03:00.000") < 0 && <span>{value.score}</span>}
           </Box>
         </Box>
         </Paper>

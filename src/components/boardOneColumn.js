@@ -52,14 +52,6 @@ export default function Board() {
           <Profiles Leaderboard={sorted(Leaderboard)}></Profiles>
         </Box>
       </Box>
-      {/* <Box display="flex" flexDirection="row" justifyContent="center">
-        <button onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}>
-          Prev
-        </button>
-        <button onClick={() => setCurrentPage(Math.min(currentPage + 1, 3))}>
-          Next
-        </button>
-      </Box> */}
     </div>
   );
 }
@@ -69,25 +61,3 @@ function sorted(data) {
     return a.score.localeCompare(b.score);
   });
 } 
-
-
-// function previousPage(currentPage) {
-//   if (currentPage > 1) {
-//     document.getElementById(`test${currentPage}`).style.visibility = "visible";
-//     document.getElementById(`test${currentPage}`).style.display = "block";
-//     currentPage -= 1;
-//   }
-// }
-
-// function nextPage(currentPage) {
-//   if (currentPage < 5) {
-//     document.getElementById(`test${currentPage}`).style.visibility = "visible";
-//     document.getElementById(`test${currentPage}`).style.display = "block";
-//     currentPage += 1;
-//   }
-// }
-
-// function showFirstFiveTeams() {
-//     document.getElementById("test1").style.display = "block";
-//     document.getElementById("test1").style.visibility = "visible";
-//   }
