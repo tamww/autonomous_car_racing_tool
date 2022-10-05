@@ -103,8 +103,8 @@ def laptimeCounter(teamID):
                     allLapTimeListOfDict = json.load(f)
                 with open("database.json", "r") as f:
                     bestTimeListOfDict = json.load(f)
-                allLapTimeListOfDict[teamID - 1]["score"] = {"1": "99:99.999"}
-                bestTimeListOfDict[teamID - 1]["score"] = "99:99.999"
+                allLapTimeListOfDict[teamID - 1]["score"] = {"1": "03:00.000"}
+                bestTimeListOfDict[teamID - 1]["score"] = "03:00.000"
                 with open("laptime.json", "w") as f:
                     json.dump(allLapTimeListOfDict, f)
                 with open("database.json", "w") as f:
