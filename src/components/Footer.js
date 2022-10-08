@@ -3,15 +3,16 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import csl from "./images/CSL.png"
+import hkt from "./images/hkt.png"
 import useStyles from '../styles/styles';
 
 function Copyright() {
   const classes = useStyles();
   return (
-    <Typography variant="h6" color="text.secondary"  >
-      {'Powered by  '}
-      <img src={csl} alt="My Team" className={classes.iconImage} />
-    </Typography>
+    <Box sx={{display: 'flex'}}>
+      <span style={{marginTop: '2px', marginRight: '5px'}}>Powered by</span>
+      <img src={hkt} alt="HKT" className={classes.iconImage} sx={{ verticalAlign: 'middle'}}/>
+    </Box>
   );
 }
 

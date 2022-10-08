@@ -3,6 +3,14 @@ import json
 from datetime import datetime, timedelta
 import sys
 
+## 03:00.000 --> DNF
+## 99:99.999 --> TBC
+## manual input --> change laptime.json --> manual sort and input fastest in database.json
+### key: lap #
+### value: time
+## change serial port if newly launch
+
+
 """
 instuctions to run the script:
 0) LOAD THE .ino FILE INTO YOUR ARDUINO (see the circuit diagram attached)
@@ -41,6 +49,10 @@ for windows:
 # count = 0
 # # teamID = int(sys.argv[1])
 
+ser = serial.Serial("COM15", baudrate=9600, timeout=1)
+timegap = 3.0
+
+
 def laptimeCounter(teamID):
     hasStarted = False
     hasFinishedOneLap = False
@@ -57,7 +69,7 @@ def laptimeCounter(teamID):
             if line == b"1\r\n" and not hasStarted:  # the first touch is the start of the race
                 startTime = datetime.now()
                 hasStarted = True
-            elif (candidateTime - startTime).total_seconds() >= 2:
+            elif (candidateTime - startTime).total_seconds() >= timegap:
                 if line == b"1\r\n":
                     # count += 1
                     # if count > 5:
@@ -83,9 +95,9 @@ def laptimeCounter(teamID):
                     # 2) read the best lap time from database.json
                     with open("database.json", "r") as f:
                         bestTimeListOfDict = json.load(f)
-                    rawBestTime = bestTimeListOfDict[teamID - 1]["score"]
+                    rawBestTime = bestTimeListOfDict[teamID - 1]["score"][0]
                     # e.g., currentTime = ["02", "13", "158"] (i.e., [min, sec, ms])
-                    currentTime = bestTimeListOfDict[teamID - 1]["score"].split(":")
+                    currentTime = rawBestTime.split(":")
                     # now currentTime = ["02", "13.158"]
                     currentTime = [currentTime[0]] + currentTime[1].split(".")
                     currentTimeDatetime = timedelta(minutes=int(currentTime[0]), seconds=int(
@@ -120,7 +132,6 @@ while True:
     # TODO: maybe test baudrate= arg inside Serial() object: mimick the arduino IDE setting
     # choose one of two Serial object based on OS type:
     # macOS or linux-like
-    ser = serial.Serial("/dev/tty.usbserial-14320", baudrate=9600, timeout=1)
     # windows
     # ser = serial.Serial("COM4", timeout=1)
     # teamID = int(sys.argv[1])
