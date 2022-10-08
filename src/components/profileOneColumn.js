@@ -21,19 +21,34 @@ export default function Profiles({ Leaderboard }) {
   return (
     <div id="profile">
       {Item(
-        Leaderboard.slice(0, 3).concat(Leaderboard.slice(3, 12)),
+        Leaderboard.slice(0, 3).concat(Leaderboard.slice(3, 8)),
         0,
         "test1"
       )}
       {Item(
-        Leaderboard.slice(0, 3).concat(Leaderboard.slice(12, 21)),
-        9,
+        Leaderboard.slice(0, 3).concat(Leaderboard.slice(8, 13)),
+      5,
         "test2"
       )}
       {Item(
-        Leaderboard.slice(0, 3).concat(Leaderboard.slice(21, 30)),
-        18,
+        Leaderboard.slice(0, 3).concat(Leaderboard.slice(13, 18)),
+        10,
         "test3"
+      )}
+      {Item(
+        Leaderboard.slice(0, 3).concat(Leaderboard.slice(18, 23)),
+        15,
+        "test4"
+      )}
+      {Item(
+        Leaderboard.slice(0, 3).concat(Leaderboard.slice(23, 28)),
+        20,
+        "test5"
+      )}
+      {Item(
+        Leaderboard.slice(0, 3).concat(Leaderboard.slice(28, 30)),
+        25,
+        "test6"
       )}
       {/* {Item(Leaderboard.slice(15, 20), 15, "test4")}
       {Item(Leaderboard.slice(20, 25), 20, "test5")}

@@ -129,7 +129,7 @@ const styles = (theme) => {
       opacity: '0.6',
     },
     iconImage: {
-      width: '2rem',
+      width: '6rem',
     }
   };
 };
