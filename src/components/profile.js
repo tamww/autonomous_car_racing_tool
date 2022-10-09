@@ -22,10 +22,10 @@ import Box from "@mui/material/Box";
 export default function Profiles({ Leaderboard }) {
   return (
     <div id="profile">
-      {Item(Leaderboard.slice(0, 8), 0)}
-      {Item(Leaderboard.slice(8, 16), 8)}
-      {Item(Leaderboard.slice(16, 24), 16)}
-      {Item(Leaderboard.slice(24, 30), 24)}
+      {Item(Leaderboard.slice(0, 8), 0, false)}
+      {Item(Leaderboard.slice(8, 16), 8, false)}
+      {Item(Leaderboard.slice(16, 24), 16, false)}
+      {Item(Leaderboard.slice(24, 30), 24, true)}
     </div>
   );
 }
@@ -63,7 +63,7 @@ function getElevation(index) {
 //   );
 //}
 
-function Item(data, startIndex) {
+function Item(data, startIndex, needTempStatement) {
   console.log(data);
   return (
     <div class="stratify">
@@ -140,6 +140,14 @@ function Item(data, startIndex) {
           </Box>
         </Paper>
       ))}
+      {needTempStatement === true && (
+        <Box style={{ textAlign: "center" }}>
+          <span style={{ marginTop: 130 + "px", fontSize: 20 + "px" }}>
+            Note: The laptime for each team would <br></br> be finalized after
+            their race ends.
+          </span>
+        </Box>
+      )}
     </div>
   );
 }
