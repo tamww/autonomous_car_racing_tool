@@ -19,3 +19,7 @@
 2. load the `.ino` file inside the arduino before using the `.py` file
 3. update the Serial() object inside `.py` file
 "# autonomous_car_racing_tool" 
+
+## AUTHOR
+tamww
+hsutungyu
