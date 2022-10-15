@@ -21,5 +21,5 @@
 "# autonomous_car_racing_tool" 
 
 ## AUTHOR
-tamww
-hsutungyu
+- tamww
+- hsutungyu
